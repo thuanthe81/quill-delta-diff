@@ -53,7 +53,7 @@ function diff_charsToWords_(diffs: Diff[], wordsArray: string[]) {
 };
 
 function diff_chars(text1: string, text2: string) : Diff[] {
-  return new diff_match_patch().dmp.diff_main(text1, text2);
+  return new diff_match_patch().diff_main(text1, text2);
 };
 
 function diff_words(text1: string, text2: string) : Diff[] {
