@@ -1,15 +1,15 @@
-import cloneDeep = require('lodash.clonedeep');
-import isEqual = require('lodash.isequal');
+import cloneDeep from 'lodash.clonedeep';
+import isEqual from 'lodash.isequal';
 
 interface AttributeMap {
-  [key: string]: unknown;
+  [key: string]: any;
 }
 
 namespace AttributeMap {
   export function compose(
     a: AttributeMap = {},
     b: AttributeMap = {},
-    keepNull = false,
+    keepNull: boolean,
   ): AttributeMap | undefined {
     if (typeof a !== 'object') {
       a = {};
