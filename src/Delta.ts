@@ -79,12 +79,8 @@ class Delta {
       // Since it does not matter if we insert before or after deleting at the same index,
       // always prefer to insert first
       if (typeof lastOp.delete === 'number' && newOp.insert != null) {
-        index -= 1;
-        lastOp = this.ops[index - 1];
-        if (typeof lastOp !== 'object') {
-          this.ops.unshift(newOp);
-          return this;
-        }
+        this.ops.push(newOp);
+        return this;
       }
       if (isEqual(newOp.attributes, lastOp.attributes)) {
         if (
