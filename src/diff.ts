@@ -2,7 +2,7 @@ import diff_match_patch from 'diff-match-patch';
 
 type Diff = [-1 | 0 | 1, string];
 
-
+// Thanks @kangchengkun. This function was copied from repo: https://github.com/kangchengkun/diff-lines-words
 function diff_wordsToChars_(text1: string, text2: string) {
   let lineArray = [];
   let lineHash: { [char: string]: number } = {};
@@ -41,6 +41,7 @@ function diff_wordsToChars_(text1: string, text2: string) {
   return {chars1, chars2, lineArray};
 };
 
+// Thanks @kangchengkun. This function was refered from repo: https://github.com/kangchengkun/diff-lines-words
 function diff_charsToWords_(diffs: Diff[], wordsArray: string[]) {
   for (let i = 0; i < diffs.length; i++) {
     let chars = diffs[i][1];
@@ -52,10 +53,12 @@ function diff_charsToWords_(diffs: Diff[], wordsArray: string[]) {
   }
 };
 
+// Thanks @kangchengkun. This function was refered from repo: https://github.com/kangchengkun/diff-lines-words
 function diff_chars(text1: string, text2: string) : Diff[] {
   return new diff_match_patch().diff_main(text1, text2);
 };
 
+// Thanks @kangchengkun. This function was refered from repo: https://github.com/kangchengkun/diff-lines-words
 function diff_words(text1: string, text2: string) : Diff[] {
   let diff = new diff_match_patch();
   let w2c = diff_wordsToChars_(text1, text2);
@@ -64,6 +67,7 @@ function diff_words(text1: string, text2: string) : Diff[] {
   return diffs;
 };
 
+// Thanks @kangchengkun. This function was refered from repo: https://github.com/kangchengkun/diff-lines-words
 function diff_lines(text1: string, text2: string) : Diff[] {
   let diff = new diff_match_patch();
   let l2c = diff.diff_linesToChars_(text1, text2);
